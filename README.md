@@ -3,7 +3,7 @@
 ### Initial Setup: <br>
   -> *Fork this repo*<br>
   
-  -> *clone into you local machine by using https link *<br>
+  -> *clone into you local machine by using https link*<br>
     `git clone https://github.com/projectAutoML/Automated-ML.git`<br>
   
   -> *make changes in your local folder*<br>
