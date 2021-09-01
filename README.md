@@ -1,6 +1,6 @@
 # Automated-ML
 
-###Initial Setup:
+### Initial Setup: <br>
   -> Fork this repo
   -> clone into you local machine by using https link 
     `git clone https://github.com/projectAutoML/Automated-ML.git`
