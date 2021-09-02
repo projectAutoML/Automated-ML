@@ -12,7 +12,7 @@
   
   -> `git commit -m "comment"`<br>
   
-  -> `git remote add origin https://github.com/<user-name>/Automated-ML.git`<br>
+  -> `git remote add origin https://github.com/<user_name>/Automated-ML.git`<br>
   
   -> `git push`<br>
   
