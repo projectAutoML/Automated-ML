@@ -1,12 +1,13 @@
-from Application_logs.logger import App_logger
 from Collect_The_Data_FromAny_Where.collectData import Collect_Data_From_Any_Where as collect_data
 import pandas as pd
 import numpy as np
-import os
+from Application_logs.logger import getLog
+logger = getLog('missingValues.py')
+
 class missingValues:
     def __init__(self, format, LocalPath=None, DbPath=None, CloudPath=None):
         self.data = collect_data(format, LocalPath, DbPath, CloudPath).get_formated_data_from_local()
-        self.logger = App_logger()
+        logger.info("intiated missingValues")
     
     
     def find_mean(self,mean_meadian_mode,col_name):
@@ -22,11 +23,11 @@ class missingValues:
             
             if mean_meadian_mode == 'mean':
                 self.data[col_name].fillna(self.data.col_name.mean())
-                self.logger.info('column {}\'s missing values are replaced with {}'.format(col_name,mean_meadian_mode))
+                logger.info('column {}\'s missing values are replaced with {}'.format(col_name,mean_meadian_mode))
                 return True
         except:
             
-            self.logger.error('column {}\'s missing values are not replaced with {}'.format(col_name,mean_meadian_mode))
+            logger.warning('column {}\'s missing values are not replaced with {}'.format(col_name,mean_meadian_mode))
             return False
         
     
@@ -44,11 +45,11 @@ class missingValues:
             if mean_meadian_mode == 'median':
                 
                 self.data[col_name].fillna(self.data.col_name.median())
-                self.logger.info('column {}\'s missing values are replaced with {}'.format(col_name,mean_meadian_mode))
+                logger.info('column {}\'s missing values are replaced with {}'.format(col_name,mean_meadian_mode))
                 return True
         
         except:
-            self.logger.error('column {}\'s missing values are not replaced with {}'.format(col_name,mean_meadian_mode))
+            logger.warning('column {}\'s missing values are not replaced with {}'.format(col_name,mean_meadian_mode))
             return False   
     
     
@@ -64,11 +65,11 @@ class missingValues:
             
             if mean_meadian_mode == 'mode':
                 self.data[col_name].fillna(self.data.col_name.mode())
-                self.logger.info('column {}\'s missing values are replaced with {}'.format(col_name,mean_meadian_mode))
+                logger.info('column {}\'s missing values are replaced with {}'.format(col_name,mean_meadian_mode))
                 return True
         
         except:
-            self.logger.error('column {}\'s missing values are not replaced with {}'.format(col_name,mean_meadian_mode))
+            logger.warning('column {}\'s missing values are not replaced with {}'.format(col_name,mean_meadian_mode))
             return False
         
         
